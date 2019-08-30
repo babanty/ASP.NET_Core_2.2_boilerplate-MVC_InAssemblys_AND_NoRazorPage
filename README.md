@@ -33,10 +33,10 @@
 24. В сборке YourProject.MainConfig в appsettings.json вписываем конфигурации необходимые чтобы движок знал где лежат view-файлы.
 25. В сборке YourProject.MainConfig в Startup.cs -> ConfigureServices // Указываем что view будут обрабатываться нашим собственным генератором, а не Razor Page
 26. В сборке YourProject.MainConfig в Program.cs -> CreateWebHostBuilder переписываем метод чтобы сборка могла видеть статические файлы в других папках за пределами своей директории
-27. В файле YourProject.Views.csproj записываем что при публикации приложения необходимо, чтобы папка Views не пропадала. Вставляем следующий код: [он может в md.ридере не отображаться]
+27. В файле YourProject.Views.csproj  записываем что при публикации приложения необходимо, чтобы папка Views не пропадала. В пределах тега \</Project> вставляем следующий код:
 
    \<ItemGroup>
-    \<Content Include="Views\**">
+    \<Content Include="Views\\**">
       \<CopyToOutputDirectory>PreserveNewest\</CopyToOutputDirectory>
     \</Content>
   \</ItemGroup>
